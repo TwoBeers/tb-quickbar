@@ -1,5 +1,5 @@
 === TwoBeers Quickbar ===
-Contributors: ilmaren, mrjimo
+Contributors: ilmaren, jimo
 Donate link: still don't have one
 Tags: navigation, comments, sidebar,
 Requires at least: 3.0
