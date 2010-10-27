@@ -1,0 +1,271 @@
+/*
+	stylesheet for TBQuickbar (v1.0beta4)
+*/
+
+/* empty space in bottom of page ----> */
+
+body { 
+	padding-bottom: 100px;
+}
+
+
+/* reset */
+
+#tbqb_quickbar html, #tbqb_quickbar body, #tbqb_quickbar div, #tbqb_quickbar span, #tbqb_quickbar applet, #tbqb_quickbar object, #tbqb_quickbar iframe, #tbqb_quickbar h1, #tbqb_quickbar h2, #tbqb_quickbar h3, #tbqb_quickbar h4, #tbqb_quickbar h5, #tbqb_quickbar h6, #tbqb_quickbar p, #tbqb_quickbar blockquote, #tbqb_quickbar pre, #tbqb_quickbar a, #tbqb_quickbar abbr, #tbqb_quickbar acronym, #tbqb_quickbar address, #tbqb_quickbar big, #tbqb_quickbar cite, #tbqb_quickbar code, #tbqb_quickbar del, #tbqb_quickbar dfn, #tbqb_quickbar em, #tbqb_quickbar font, #tbqb_quickbar img, #tbqb_quickbar ins, #tbqb_quickbar kbd, #tbqb_quickbar q, #tbqb_quickbar s, #tbqb_quickbar samp, #tbqb_quickbar small, #tbqb_quickbar strike, #tbqb_quickbar strong, #tbqb_quickbar sub, #tbqb_quickbar sup, #tbqb_quickbar tt, #tbqb_quickbar var, #tbqb_quickbar b, #tbqb_quickbar u, #tbqb_quickbar i, #tbqb_quickbar center, #tbqb_quickbar dl, #tbqb_quickbar dt, #tbqb_quickbar dd, #tbqb_quickbar ol, #tbqb_quickbar ul, #tbqb_quickbar li, #tbqb_quickbar fieldset, #tbqb_quickbar form, #tbqb_quickbar label, #tbqb_quickbar legend, #tbqb_quickbar table, #tbqb_quickbar caption, #tbqb_quickbar tbody, #tbqb_quickbar tfoot, #tbqb_quickbar thead, #tbqb_quickbar tr, #tbqb_quickbar th, #tbqb_quickbar td {
+	background:none repeat scroll 0 0 transparent;
+	border:0 none;
+	margin:0;
+	padding:0;
+	vertical-align:baseline;
+}
+
+/* Quickbar classes ----> */
+
+#tbqb_quickbar input[type="button"], #tbqb_quickbar input[type="submit"], #tbqb_quickbar input[type="reset"] {
+	-moz-border-radius: 3px;
+	-moz-box-shadow: none;
+	background-color:transparent;
+	border: 2px groove #aaaaaa;
+	color:#222222;
+	font-weight:normal;
+}
+
+#tbqb_quickbar input[type="button"]:hover, #tbqb_quickbar input[type="submit"]:hover, #tbqb_quickbar input[type="reset"]:hover {
+	border: 2px groove #555555;
+}
+
+#tbqb_quickbar {
+	bottom:0;
+	font-family:Verdana,sans-serif;
+	font-size:11px;
+	font-weight:normal;
+	left:0;
+	letter-spacing:0;
+	line-height:1.1em;
+	margin:0 2% 10px;
+	padding:0;
+	position:fixed;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0;
+	text-shadow:none;
+	width:96%;
+	z-index:1000;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#tbqb_quickbar #tbqb_s {
+	padding:2px 3px 2px 20px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#tbqb_quickbar a {
+	text-decoration: none;
+}
+
+#tbqb_quickbar .tbqb_widget {
+	float: left;
+	height:30px;
+	padding:0 10px;
+	position:relative;
+}
+
+#tbqb_quickbar .tbqb_widget h4{
+	margin:5px 0;
+	cursor:default;
+	font-size:12px;
+}
+
+#tbqb_quickbar .fw_pul{
+	margin:0;
+	position:absolute;
+	display:none;
+	bottom:0;
+	width:300px;
+	left:-5px;
+	padding: 10px;
+	border-style:solid;
+	border-width:1px;
+	max-height: 275px;
+	overflow: auto;
+	-moz-box-shadow: 1px 1px 4px #333333;
+	-webkit-box-shadow: 1px 1px 4px #333333;
+	-khtml-box-shadow: 1px 1px 4px #333333;
+	box-shadow: 1px 1px 4px #333333;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#tbqb_quickbar .fw_pul ul, #tbqb_quickbar .sub-menu{
+	list-style:none inside none;
+	margin:0;
+	padding:0;
+}
+
+#tbqb_quickbar .fw_pul ul ul{
+	list-style:none inside none;
+	margin-left:10px;
+}
+
+#tbqb_quickbar .sub-menu li {
+	list-style:none inside none;
+	margin:0;
+	padding:0;
+}
+
+#tbqb_quickbar .tbqb_widget:hover .fw_pul {
+	display: block;
+}
+
+#tbqb_quickbar .fw_pul_cont {
+	position:absolute;
+	bottom:25px;
+	z-index:4;
+}
+
+#tbqb_quickbar #tbqb_avatar_cont {
+	float: left;
+	padding:10px;
+	margin:-20px 0;
+}
+
+#tbqb_avatar_cont img {
+	max-height: 50px;
+	padding: 2px;
+	background: #ffffff;
+	border:1px solid #666666;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow:0 0 5px #000000;
+}
+
+#tbqb_quickbar #tbqb_main_ul {
+	list-style:none outside none;
+	margin:0 300px 0 0;
+}
+
+#tbqb_quickbar #tbqb_right {
+	float: right;
+	margin: 5px;
+	text-align: center;
+}
+
+#tbqb_quickbar #calendar_wrap {
+	background: #FFFFFF;
+	padding:5px;
+	width:290px;
+}
+
+#tbqb_quickbar #calendar_wrap a{
+	color:#222222;
+}
+
+#tbqb_quickbar #calendar_wrap a:hover{
+	text-decoration: underline;
+}
+
+#tbqb_quickbar #wp-calendar {
+	width:100%;
+}
+#tbqb_quickbar #wp-calendar caption {
+	color:#555555;
+	font-size:12px;
+	font-weight:bold;
+	padding-bottom:4px;
+	text-align:center;
+}
+#tbqb_quickbar #wp-calendar thead {
+	font-size:14px;
+}
+#tbqb_quickbar #wp-calendar thead th {
+	color:#555555;
+}
+#tbqb_quickbar #wp-calendar tbody {
+	color:#AAAAAA;
+}
+#tbqb_quickbar #wp-calendar tbody td {
+	background:none repeat scroll 0 0 #F5F5F5;
+	border:1px solid #FFFFFF;
+	padding:3px 0 2px;
+	text-align:center;
+}
+#tbqb_quickbar #wp-calendar tbody .pad {
+	background:none repeat scroll 0 0 transparent;
+}
+#tbqb_quickbar #wp-calendar tfoot #next {
+	text-align:right;
+}
+
+#tbqb_quickbar #tbqb_search {
+	margin-bottom: 3px;
+}
+
+/* <---- Quickbar classes */
+
+/* Easynavi classes ----> */
+
+#tbqb-navi_div {
+	-moz-border-radius:5px 0 0 5px;
+	-moz-box-shadow:-1px 1px 3px #000000;
+	border-style:solid none solid solid;
+	border-width:1px;
+	display:block;
+	padding:5px 5px 2px;
+	position:fixed;
+	right:0;
+	text-align:center;
+	top:40%;
+}
+#tbqb-navi_div a {
+	display: block;
+	text-align: center;
+}
+.tbqb-navi_buttons {
+	position: relative;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	margin:6px 2px;
+}
+.tbqb-navi_buttons:hover {
+	margin:6px 4px 6px 0px;
+}
+.tbqb-navi_buttons .nb_tooltip {
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	display: none;
+	min-width: 200px;
+	position: absolute;
+	top: -2px;
+	right: 20px;
+	text-align: right;
+	white-space: pre;
+	padding: 3px 20px 3px 5px;
+}
+.tbqb-minibutton {
+	position: relative;
+}
+.tbqb-minibutton:hover .nb_tooltip {
+	display: block;
+}
+.tbqb-minibutton .nb_tooltip:hover {
+	display: none;
+}
+/* <---- Easynavi classes */

@@ -1,0 +1,136 @@
+/* preview and js form style */
+
+#jsForm input.submit, #jsForm input.button, #jsAdvanced input.button {
+	padding: 0px;
+	margin: 0px;
+}
+.defbutton {
+	font-weight: bold;
+}
+.zerosize {
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+}
+#colorPickerDiv a, #colorPickerDiv a:hover {
+	padding: 1px;
+	text-decoration: none;
+	border-bottom: 0px;
+}
+#quickbarpreview {
+	-moz-border-radius: 15px 15px 15px 15px;
+	background-position: left top;
+	background-repeat: repeat-x;
+	margin-bottom: 20px;
+	padding: 0 5px;
+	min-height: 50px;
+	max-width: 810px;
+}
+#quickbarpreview p {
+	margin: 5px;
+	font-weight: bold;
+}
+#qbp_text {
+	padding: 5px;
+}
+#qbp_hitext {
+	padding: 5px;
+}
+#colorPickerDiv {
+	padding: 0 5px 5px;
+	-moz-border-radius: 10px;
+	-moz-box-shadow: 2px 2px 4px #333333;
+}
+#colorPickerSelectedColorValue, #colorPickerSelectedColor {
+	border-top: 5px solid #fff;
+}
+
+/* page style */
+
+.stylediv {
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: #F5F5F5;
+	border:1px solid #CCCCCC;
+	margin-bottom:10px;
+	max-width: 800px;
+	padding: 0 10px 10px;
+}
+.stylediv h3 {
+	-moz-border-radius: 10px 10px 0 0;
+	-khtml-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	background: none repeat scroll 0 0 #F0F0F0;
+	border-bottom: 1px solid #DDDDDD;
+	border-top: 1px solid #FFFFFF;
+	color: #404040;
+	font-size: 1em;
+	margin: 0 -10px 10px;
+	padding: 5px 10px;
+	text-shadow: 1px 1px 0 #FFFFFF;
+}
+.stylediv td, .stylediv th {
+	border-top:1px solid #DDDDDD;
+	padding:3px 10px;
+	font-size:11px;
+}
+.ww_opt_p {
+	padding: 3px;
+	width: 494px;
+	border: 1px solid #DFDFDF;
+	background-color: #FFFFFF;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: left;
+}
+.ww_opt_p_checkbox{
+	float: right;
+}
+#theme_preview {
+	-moz-box-shadow: 2px 2px 3px #555555;
+	box-shadow: 2px 2px 3px #555555;
+	-webkit-box-shadow: 2px 2px 3px #555555;
+	-khtml-box-shadow: 2px 2px 3px #555555;
+}
+#fontcolor, #bgcolor, #bordercolor, #hifontcolor {
+	font-size: .8em;
+}
+#The_colorPicker{
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-box-shadow: 0 0 5px #000000;
+	box-shadow: 0 0 5px #000000;
+	-webkit-box-shadow: 0 0 5px #000000;
+	-khtml-box-shadow: 0 0 5px #000000;
+	position: absolute;
+	width: 260px;
+	background-color: #FFF;
+}
+#tcp-hue {
+	position : absolute;
+	right : 10px;
+	top : 35px;
+	width : 35px;
+	height : 200px;
+}
+#tcp-satval {
+	position : absolute;
+	top : 35px;
+	width : 200px;
+	height : 200px;
+	left: 10px;
+}
+#tcp-maindiv {
+	padding :0 0 10px;
+	position : relative;
+	height : 235px;
+}
+#tcp-btnclose {
+	padding: 10px;
+}
