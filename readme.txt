@@ -1,7 +1,7 @@
 === TwoBeers Quickbar ===
-Contributors: ilmaren, jimo
+Contributors: ilmaren, mrjimo
 Donate link: still don't have one
-Tags: navigation, comments, sidebar,
+Tags: navigation, comments, sidebar
 Requires at least: 3.0
 Tested up to: 3.0.1
 Stable tag: 0.2
