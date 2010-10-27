@@ -1,10 +1,10 @@
-=== Plugin Name ===
-Contributors: markjaquith, mdawaffe (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
-Requires at least: 2.0.2
-Tested up to: 2.1
-Stable tag: 4.3
+=== TwoBeers Quickbar ===
+Contributors: ilmaren, jimo
+Donate link: still don't have one
+Tags: navigation, comments, sidebar,
+Requires at least: 3.0
+Tested up to: 3.0.1
+Stable tag: 0.2
 
 Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 

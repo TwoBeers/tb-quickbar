@@ -3,7 +3,7 @@
 Plugin Name: TwoBeers Quickbar
 Plugin URI: http://www.twobeers.net/
 Description: Quickbar from TwoBeers.net
-Version: 0.1beta3
+Version: 0.2
 Author: TB Crew
 Author URI: http://www.twobeers.net/
 License: GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -67,18 +67,18 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 					'backcolor' => '#FFFFFF',
 					'bordercolor' => '#000000',
 					'highcolor' => '#5F5F5F',
-					'quickbar' => 'true',
-					'easynavi' => 'true',
-					'meta' => 'true',
-					'username' => 'true',
-					'welcome' => 'true',
+					'quickbar' => 1,
+					'easynavi' => 1,
+					'meta' => 1,
+					'username' => 1,
+					'welcome' => 1,
 					'welcometxt' => 'Welcome',
-					'gravatar' => 'true',
+					'gravatar' => 1,
 					'gravatartype' => 'current-user',
 					'gravatardatas' => '',
-					'search' => 'true',
-					'date' => 'true',
-					'jsani' => 'true'
+					'search' => 1,
+					'date' => 1,
+					'jsani' => 1
 					);
 
 				// store default options
@@ -94,51 +94,25 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 		// sanitaze and validate input
 		function tbqb_sanitaze_options($input) {
 
-			$input['fontcolor'] = esc_url( $input['fontcolor'] );
-			$input['backcolor'] = esc_url( $input['backcolor'] );
-			$input['bordercolor'] = esc_url( $input['bordercolor'] );
-			$input['highcolor'] = esc_url( $input['highcolor'] );
+			$input['fontcolor'] = esc_url( substr( $input['fontcolor'], 0 ,7 ) );
+			$input['backcolor'] = esc_url( substr( $input['backcolor'], 0 ,7 ) );
+			$input['bordercolor'] = esc_url( substr( $input['bordercolor'], 0 ,7 ) );
+			$input['highcolor'] = esc_url( substr( $input['highcolor'], 0 ,7 ) );
 
-			if ( !isset( $input['quickbar'] ) ) {
-				$input['quickbar'] = 'false';
-			} else {
-				$input['quickbar'] = 'true';
-			}
-			
-			if ( !isset( $input['easynavi'] ) ) {
-				$input['easynavi'] = 'false';
-			} else {
-				$input['easynavi'] = 'true';
-			}
-			
-			if ( !isset( $input['meta'] ) ) {
-				$input['meta'] = 'false';
-			} else {
-				$input['meta'] = 'true';
-			}
-
-			if ( !isset( $input['username'] ) ) {
-				$input['username'] = 'false';
-			} else {
-				$input['username'] = 'true';
-			}
-
-			if ( !isset( $input['welcome'] ) ) {
-				$input['welcome'] = 'false';
-			} else {
-				$input['welcome'] = 'true';
-			}
+			$input['quickbar'] = ( $input['quickbar'] == 1 ? 1 : 0 );
+			$input['easynavi'] = ( $input['easynavi'] == 1 ? 1 : 0 );
+			$input['meta'] = ( $input['meta'] == 1 ? 1 : 0 );
+			$input['username'] = ( $input['username'] == 1 ? 1 : 0 );
+			$input['welcome'] = ( $input['welcome'] == 1 ? 1 : 0 );
+			$input['gravatar'] = ( $input['gravatar'] == 1 ? 1 : 0 );
+			$input['search'] = ( $input['search'] == 1 ? 1 : 0 );
+			$input['date'] = ( $input['date'] == 1 ? 1 : 0 );
+			$input['jsani'] = ( $input['jsani'] == 1 ? 1 : 0 );
 
 			if ( !isset( $input['welcometxt'] ) || empty( $input['welcometxt'] ) ) {
 				$input['welcometxt'] ='Welcome';
 			} else {
 				$input['welcometxt'] = esc_attr( substr( $input['welcometxt'], 0, 20 ) );
-			}
-
-			if ( !isset( $input['gravatar'] ) ) {
-				$input['gravatar'] = 'false';
-			} else {
-				$input['gravatar'] = 'true';
 			}
 
 			if ( !isset( $input['gravatartype'] ) ) {
@@ -158,24 +132,6 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 				$input['gravatardatas'] = esc_url_raw( $input['gravatardatas'] );
 			}
 
-			if ( !isset( $input['search'] ) ) {
-				$input['search'] = 'false';
-			} else {
-				$input['search'] = 'true';
-			}
-
-			if ( !isset( $input['date'] ) ) {
-				$input['date'] = 'false';
-			} else {
-				$input['date'] = 'true';
-			}
-
-			if ( !isset( $input['jsani'] ) ) {
-				$input['jsani'] = 'false';
-			} else {
-				$input['jsani'] = 'true';
-			}
-
 			return $input;
 		}
 
@@ -186,10 +142,10 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 
 			?>
 			<!-- begin easynavi -->
-			<?php if ( $tbqb_options['easynavi'] == 'true' ) { ?>
+			<?php if ( $tbqb_options['easynavi'] == 1 ) { ?>
 				<div id="tbqb-bottom_ref" style="clear: both; height: 1px;"> </div>
 				<div id="tbqb-navi_div">
-	
+
 					<div id="tbqb-navi_cont">
 						<?php if ( is_singular() ) { ?>
 							<div class="tbqb-minibutton">
@@ -228,7 +184,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								<?php } ?>
 							<?php } ?>
 							<div class="tbqb-minibutton">
-								<a href="<?php echo home_url(); ?>" title="<?php _e( 'Homeì' ); ?>">
+								<a href="<?php echo bloginfo( 'url' ); ?>" title="<?php _e( 'Homeì' ); ?>">
 									<div class="tbqb-navi_buttons" style="background-position: -64px top">
 										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
 									</div>
@@ -242,16 +198,16 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 							</div>
 						<?php } else {?>
 							<div class="tbqb-minibutton">
-								<a href="<?php echo home_url(); ?>" title="<?php _e( 'Home' ); ?>">
+								<a href="<?php bloginfo( 'url' ); ?>" title="<?php _e( 'Home' ); ?>">
 									<div class="tbqb-navi_buttons" style="background-position: -64px top">
 										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
 									</div>
 								</a>
 							</div>
-							<?php  posts_nav_link( ' ', '<div title="'. __('Newer Posts','tbqb').'" class="tbqb-navi_buttons" style="background-position: -80px top"> </div>', '<div title="'. __('Older Posts','tbqb').'" class="tbqb-navi_buttons" style="background-position: -96px top"> </div>' ); ?>
+							<?php  posts_nav_link( ' ', '<div title="'. __( 'Newer Posts','tbqb' ).'" class="tbqb-navi_buttons" style="background-position: -80px top"> </div>', '<div title="'. __( 'Older Posts','tbqb' ).'" class="tbqb-navi_buttons" style="background-position: -96px top"> </div>' ); ?>
 						<?php } ?>
 						<div class="tbqb-minibutton">
-							<a href="#" title="<?php _e('Top of page', 'tbqb' ); ?>">
+							<a href="#" title="<?php _e( 'Top of page', 'tbqb' ); ?>">
 								<div class="tbqb-navi_buttons" style="background-position: -112px top">
 									<span class="nb_tooltip"><?php _e( 'Top of page', 'tbqb' ); ?></span>
 								</div>
@@ -265,39 +221,39 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 							</a>
 						</div>
 					</div>
-	
+
 				</div>
 			<?php } ?>
 			<!-- end easynavi -->
 
 			<!-- begin quickbar -->
-			<?php if ( $tbqb_options['quickbar'] == 'true' ) { ?>
+			<?php if ( $tbqb_options['quickbar'] == 1 ) { ?>
 				<div id="tbqb_quickbar">
 					<div id="tbqb_right">
-						<?php if ( $tbqb_options['search'] == 'true' ) { ?>
+						<?php if ( $tbqb_options['search'] == 1 ) { ?>
 							<div id="tbqb_search">
-								<form id="tbqb_searchform" method="get" action="<?php bloginfo('url'); ?>">
-									<input type="text" onfocus="if (this.value == '<?php esc_attr_e("Search") ?>...') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php esc_attr_e("Search") ?>...';}" id="tbqb_s" name="s" value="<?php esc_attr_e('Search') ?>..." size="30" />
+								<form id="tbqb_searchform" method="get" action="<?php bloginfo( 'url' ); ?>">
+									<input type="text" onfocus="if (this.value == '<?php esc_attr_e( 'Search' ) ?>...') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php esc_attr_e( 'Search' ) ?>...';}" id="tbqb_s" name="s" value="<?php esc_attr_e( 'Search' ) ?>..." size="30" />
 									<input type="hidden" id="searchsubmit">
 								</form>
 							</div>
 						<?php } ?>
-						<?php if ( $tbqb_options['date'] == 'true' ) { ?>
+						<?php if ( $tbqb_options['date'] == 1 ) { ?>
 							<small><?php esc_attr_e( 'Today is ','tbqb' ); echo date_i18n( 'l' ); ?><br /><?php echo date_i18n( __( 'F j, Y' ) ); ?></small>
 						<?php } ?>
 					</div>
 					<ul id="tbqb_main_ul">
-						<?php if ( $tbqb_options['gravatar'] == 'true' ) { ?>
+						<?php if ( $tbqb_options['gravatar'] == 1 ) { ?>
 							<li id="tbqb_avatar_cont"><?php $this->tbqb_gravatar(); ?></li>
 						<?php } ?>
-						<?php if ( $tbqb_options['meta'] == 'true' ) { ?>
+						<?php if ( $tbqb_options['meta'] == 1 ) { ?>
 							<li class="tbqb_widget">
 								<h4 class="tbqb_w_title">
 									<?php
-									if ( $tbqb_options['welcome'] == 'true' ) {
+									if ( $tbqb_options['welcome'] == 1 ) {
 										esc_attr_e( $tbqb_options['welcometxt'] );
 										echo '&nbsp;&nbsp;';
-										if ( is_user_logged_in() && $tbqb_options['username'] == 'true' ) {
+										if ( is_user_logged_in() && $tbqb_options['username'] == 1 ) {
 											echo $current_user->display_name;
 										}
 									} else {
@@ -311,8 +267,8 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 										<ul class="">
 											<?php wp_register(); ?>
 											<?php if ( is_user_logged_in() ) {?>
-												<li><a href="<?php echo home_url(); ?>/wp-admin/profile.php"><?php esc_attr_e( 'Your Profile' ); ?></a></li>
-												<li><a title="<?php esc_attr_e( 'Add New Post' ); ?>" href="<?php echo home_url(); ?>/wp-admin/post-new.php"><?php esc_attr_e( 'New Post' ); ?></a></li>
+												<li><a href="<?php bloginfo( 'url' ); ?>/wp-admin/profile.php"><?php esc_attr_e( 'Your Profile' ); ?></a></li>
+												<li><a title="<?php esc_attr_e( 'Add New Post' ); ?>" href="<?php bloginfo( 'url' ); ?>/wp-admin/post-new.php"><?php esc_attr_e( 'New Post' ); ?></a></li>
 											<?php } ?>
 											<li><?php wp_loginout(); ?></li>
 										</ul>
@@ -320,7 +276,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								</div>
 							</li>
 						<?php } ?>
-	
+
 						<?php
 						//load the tb_quickbar sidebar and display quickbar widgets
 						dynamic_sidebar( 'tb_quickbar' );
@@ -338,7 +294,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			$tbqb_options = get_option( $this->tbqb_options_name );
 
 			if ( $tbqb_options['gravatartype'] == 'current-user' ) {
-				if (is_user_logged_in()) { //fix for notice when user not log-in
+				if ( is_user_logged_in() ) { //fix for notice when user not log-in
 					get_currentuserinfo();
 					$email = $current_user->user_email;
 					echo get_avatar( sanitize_email( $email ), 50, $default = esc_url( TBQBPLGN_URLPATH . 'images/user.png' ),'user-avatar' );
@@ -359,7 +315,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 		function tbqb_scripts(){
 			$tbqb_options = get_option( $this->tbqb_options_name );
 
-			if ( isset( $tbqb_options['jsani'] ) && $tbqb_options['jsani']=='true' ) {
+			if ( isset( $tbqb_options['jsani'] ) && $tbqb_options['jsani']==1 ) {
 				// enqueue the script
 				wp_enqueue_script( 'tbqb_script_animations', TBQBPLGN_URLPATH . 'js/tbqb-script.js' , array('jquery'), $this->version, true );
 			}
@@ -439,7 +395,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			register_sidebar( array(
 				'name'          =>	'TBQuickbar',
 				'id'            =>	'tb_quickbar',
-				'description'   =>	__('drag here your favorite widgets','tb_quickbar'),
+				'description'   =>	__('drag here your favorite widgets','tbqb'),
 				'before_widget'	=>	'<li id="%1$s" class="tbqb_widget %2$s">',
 				'after_widget'	=>	'</div></div></li>',
 				'before_title'	=>	'<h4 class="tbqb_w_title">',
@@ -510,118 +466,134 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 				</div>
 				<form method="post" action="options.php">
 					<?php settings_fields( $this->tbqb_options_name . 'Group' ); ?>
-					<div id="tbqb-appearance" class="stylediv" <?php if ( $tbqb_options['easynavi'] == 'false' && $tbqb_options['quickbar'] == 'false' ) { echo 'style="display:none;"'; } ?> >
+					<div id="tbqb-appearance" class="stylediv" <?php if ( $tbqb_options['easynavi'] == 0 && $tbqb_options['quickbar'] == 0 ) { echo 'style="display:none;"'; } ?> >
 						<h3><?php esc_attr_e('Appearance','tbqb'); ?></h3>
-						<div id="jsForm">
-							<input type="text" name="<?php echo $this->tbqb_options_name; ?>[fontcolor]" id="fontcolor" value="<?php echo $tbqb_options['fontcolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['fontcolor']; ?>;" />
-							<?php esc_attr_e('Normal Text','tbqb'); ?>
-							<br />
-							<input type="text" name="<?php echo $this->tbqb_options_name; ?>[highcolor]" id="hifontcolor" value="<?php echo $tbqb_options['highcolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['highcolor']; ?>;" />
-							<?php esc_attr_e('Highlighted Text','tbqb'); ?>
-							<br />
-							<input type="text" name="<?php echo $this->tbqb_options_name; ?>[backcolor]" id="bgcolor" value="<?php echo $tbqb_options['backcolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['backcolor']; ?>;" />
-							<?php esc_attr_e('Background','tbqb'); ?>
-							<br />
-							<input type="text" name="<?php echo $this->tbqb_options_name; ?>[bordercolor]" id="bordercolor" value="<?php echo $tbqb_options['bordercolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['bordercolor']; ?>;" />
-							<?php esc_attr_e('Border','tbqb'); ?>
+						<div id="jsForm" >
+							<table style="border-collapse: collapse; width: 70%;">
+								<tr>
+									<th><?php _e('name','tbqb'); ?></th>
+									<th><?php _e('current','tbqb'); ?></th>
+									<th><?php _e('select new','tbqb'); ?></th>
+								</tr>
+								<tr>
+									<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Normal Text','tbqb'); ?></td>
+									<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><?php echo $tbqb_options['fontcolor']; ?></td>
+									<td style="font-style:italic;text-align:center;"><input type="text" name="<?php echo $this->tbqb_options_name; ?>[fontcolor]" id="fontcolor" value="<?php echo $tbqb_options['fontcolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['fontcolor']; ?>;" /></td>
+								</tr>
+								<tr>
+									<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Highlighted Text','tbqb'); ?></td>
+									<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><?php echo $tbqb_options['highcolor']; ?></td>
+									<td style="font-style:italic;text-align:center;"><input type="text" name="<?php echo $this->tbqb_options_name; ?>[highcolor]" id="hifontcolor" value="<?php echo $tbqb_options['highcolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['highcolor']; ?>;" /></td>
+								</tr>
+								<tr>
+									<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Background','tbqb'); ?></td>
+									<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><?php echo $tbqb_options['backcolor']; ?></td>
+									<td style="font-style:italic;text-align:center;"><input type="text" name="<?php echo $this->tbqb_options_name; ?>[backcolor]" id="bgcolor" value="<?php echo $tbqb_options['backcolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['backcolor']; ?>;" /></td>
+								</tr>
+								<tr>
+									<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Border','tbqb'); ?></td>
+									<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><?php echo $tbqb_options['bordercolor']; ?></td>
+									<td style="font-style:italic;text-align:center;"><input type="text" name="<?php echo $this->tbqb_options_name; ?>[bordercolor]" id="bordercolor" value="<?php echo $tbqb_options['bordercolor']; ?>"  onclick="startColorPicker(this)" onkeyup="maskedHex(this)" style="background-color:<?php echo $tbqb_options['bordercolor']; ?>;" /></td>
+								</tr>
+						</table>
 						</div>
 					</div>
 					<div class="stylediv">
 						<h3><?php _e('Options','tbqb'); ?></h3>
-					<table style="border-collapse: collapse; width: 100%;">
-						<tr>
-							<th><?php _e('name','shiword'); ?></th>
-							<th><?php _e('status','shiword'); ?></th>
-							<th><?php _e('description','shiword'); ?></th>
-							<th><?php _e('require','shiword'); ?></th>
-						</tr>
-						<tr id="tbqb-tr-quickbar" >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[quickbar]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['quickbar'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide bottom quickbar','tbqb' ); ?> [default = enable]</small></td>
-							<td></td>
-						</tr>
-						<tr id="tbqb-tr-search_box" <?php if( $tbqb_options['quickbar'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e( 'Search Box','tbqb' ); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[search]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['search'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar search box','tbqb' ); ?> [default = enable]</small></td>
-							<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-date" <?php if( $tbqb_options['quickbar'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e('Date','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[date]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['date'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar date','tbqb' ); ?> [default = enable]</small></td>
-							<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-gravatar" <?php if( $tbqb_options['quickbar'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e('Gravatar.','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[gravatar]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['gravatar'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar gravatar','tbqb' ); ?> [default = enable]</small></td>
-							<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-gravatar_type" <?php if( $tbqb_options['quickbar'] == 'false' || $tbqb_options['gravatar'] == 'false' ) { echo 'style="display:none;"'; } ?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">-- <?php esc_attr_e('Gravatar Type','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:left;" colspan="2">
-								<?php
-								$tbqb_gravatar = array( 'current-user' => __('Current User','tbqb') , 'fixed' => __('Fixed Gravatar Image','tbqb') );
-								foreach ($tbqb_gravatar as $tbqb_gravatar_value => $tbqb_gravatar_option) {
-									$tbqb_gravatar_selected = ($tbqb_gravatar_value == $tbqb_options['gravatartype']) ? ' checked="checked"' : '';
-									echo <<<HERE
-									<input type="radio" name="$this->tbqb_options_name[gravatartype]" title="$tbqb_gravatar_option" value="$tbqb_gravatar_value" $tbqb_gravatar_selected >$tbqb_gravatar_option &nbsp;&nbsp;
+						<table style="border-collapse: collapse; width: 100%;">
+							<tr>
+								<th><?php _e('name','tbqb'); ?></th>
+								<th><?php _e('status','tbqb'); ?></th>
+								<th><?php _e('description','tbqb'); ?></th>
+								<th><?php _e('require','tbqb'); ?></th>
+							</tr>
+							<tr id="tbqb-tr-quickbar" >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[quickbar]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['quickbar'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide bottom quickbar','tbqb' ); ?> [default = enable]</small></td>
+								<td></td>
+							</tr>
+							<tr id="tbqb-tr-search_box" <?php if( $tbqb_options['quickbar'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e( 'Search Box','tbqb' ); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[search]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['search'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar search box','tbqb' ); ?> [default = enable]</small></td>
+								<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-date" <?php if( $tbqb_options['quickbar'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e('Date','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[date]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['date'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar date','tbqb' ); ?> [default = enable]</small></td>
+								<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-gravatar" <?php if( $tbqb_options['quickbar'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e('Gravatar.','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[gravatar]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['gravatar'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar gravatar','tbqb' ); ?> [default = enable]</small></td>
+								<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-gravatar_type" <?php if( $tbqb_options['quickbar'] == 0 || $tbqb_options['gravatar'] == 0 ) { echo 'style="display:none;"'; } ?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">-- <?php esc_attr_e('Gravatar Type','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:left;" colspan="2">
+									<?php
+									$tbqb_gravatar = array( 'current-user' => __('Current User','tbqb') , 'fixed' => __('Fixed Gravatar Image','tbqb') );
+									foreach ($tbqb_gravatar as $tbqb_gravatar_value => $tbqb_gravatar_option) {
+										$tbqb_gravatar_selected = ($tbqb_gravatar_value == $tbqb_options['gravatartype']) ? ' checked="checked"' : '';
+										echo <<<HERE
+										<input type="radio" name="$this->tbqb_options_name[gravatartype]" title="$tbqb_gravatar_option" value="$tbqb_gravatar_value" $tbqb_gravatar_selected >$tbqb_gravatar_option &nbsp;&nbsp;
 HERE;
-								}
-								?><br />
-								<small>[default = current-user]</small>
-							</td>
-							<td><?php esc_attr_e( 'Quickbar - Gravatar','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-gravatar_datas" <?php if( $tbqb_options['quickbar'] == 'false' || $tbqb_options['gravatar'] == 'false' || $tbqb_options['gravatartype'] != 'fixed' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">--- <?php esc_attr_e('Gravatar Url or Email','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:left;" colspan="2">
-								<input type="text" size="60" name="<?php echo $this->tbqb_options_name; ?>[gravatardatas]" value="<?php echo esc_attr($tbqb_options['gravatardatas']); ?>" /><br />
-								<small>[default = tb-quickbar/images/user.png]</small>
-							</td>
-							<td><?php esc_attr_e( 'Quickbar - Gravatar','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-meta" <?php if( $tbqb_options['quickbar'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e('Meta Menu','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[meta]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['meta'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar meta','tbqb' ); ?> [default = enable]</small></td>
-							<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-welcome" <?php if( $tbqb_options['quickbar'] == 'false' || $tbqb_options['meta'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">-- <?php esc_attr_e('Welcome Message','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[welcome]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['welcome'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar welcome message','tbqb' ); ?> [default = enable]</small></td>
-							<td><?php esc_attr_e( 'Quickbar - Meta','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-welcome_txt" <?php if( $tbqb_options['quickbar'] == 'false' || $tbqb_options['meta'] == 'false' || $tbqb_options['welcome'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">--- <?php esc_attr_e('Welcome User Message Text','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:left;" colspan="2">
-								<input type="text" size="60" maxlength="20" name="<?php echo $this->tbqb_options_name; ?>[welcometxt]" value="<?php echo esc_attr($tbqb_options['welcometxt']); ?>" /><br />
-								<small>[default = Welcome, max 20 characters]</small>
-							</td>
-							<td><?php esc_attr_e( 'Quickbar - Meta - Welcome Message','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-username" <?php if( $tbqb_options['quickbar'] == 'false' || $tbqb_options['meta'] == 'false' || $tbqb_options['welcome'] == 'false' ) { echo 'style="display:none;"'; }?> >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">---- <?php esc_attr_e('Show Username','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[username]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['username'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar username','tbqb' ); ?> [default = enable]</small></td>
-							<td><?php esc_attr_e( 'Quickbar - Meta - Welcome Message','tbqb' ); ?></td>
-						</tr>
-						<tr id="tbqb-tr-easynavi" >
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Use Easy Navigation','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[easynavi]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['easynavi'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e('Hide/Show advance navigation tool on the right of the screen','tbqb'); ?> [default = enable]</small></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Use Pop-up Menu Animations','tbqb'); ?></td>
-							<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[jsani]" value="true" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['jsani'] == 'true' ) echo ' checked="checked" '; ?> /></td>
-							<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e('Try disable animations if you encountered problems with javascript','tbqb'); ?> [default = enable]</small></td>
-							<td></td>
-						</tr>
-					</table>
+									}
+									?><br />
+									<small>[default = current-user]</small>
+								</td>
+								<td><?php esc_attr_e( 'Quickbar - Gravatar','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-gravatar_datas" <?php if( $tbqb_options['quickbar'] == 0 || $tbqb_options['gravatar'] == 0 || $tbqb_options['gravatartype'] != 'fixed' ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">--- <?php esc_attr_e('Gravatar Url or Email','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:left;" colspan="2">
+									<input type="text" size="60" name="<?php echo $this->tbqb_options_name; ?>[gravatardatas]" value="<?php echo esc_attr($tbqb_options['gravatardatas']); ?>" /><br />
+									<small>[default = tb-quickbar/images/user.png]</small>
+								</td>
+								<td><?php esc_attr_e( 'Quickbar - Gravatar','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-meta" <?php if( $tbqb_options['quickbar'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">- <?php esc_attr_e('Meta Menu','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[meta]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['meta'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar meta','tbqb' ); ?> [default = enable]</small></td>
+								<td><?php esc_attr_e( 'Quickbar','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-welcome" <?php if( $tbqb_options['quickbar'] == 0 || $tbqb_options['meta'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">-- <?php esc_attr_e('Welcome Message','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[welcome]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['welcome'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar welcome message','tbqb' ); ?> [default = enable]</small></td>
+								<td><?php esc_attr_e( 'Quickbar - Meta','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-welcome_txt" <?php if( $tbqb_options['quickbar'] == 0 || $tbqb_options['meta'] == 0 || $tbqb_options['welcome'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">--- <?php esc_attr_e('Welcome User Message Text','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:left;" colspan="2">
+									<input type="text" size="60" maxlength="20" name="<?php echo $this->tbqb_options_name; ?>[welcometxt]" value="<?php echo esc_attr($tbqb_options['welcometxt']); ?>" /><br />
+									<small>[default = Welcome, max 20 characters]</small>
+								</td>
+								<td><?php esc_attr_e( 'Quickbar - Meta - Welcome Message','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-username" <?php if( $tbqb_options['quickbar'] == 0 || $tbqb_options['meta'] == 0 || $tbqb_options['welcome'] == 0 ) { echo 'style="display:none;"'; }?> >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;">---- <?php esc_attr_e('Show Username','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[username]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['username'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e( 'Show/Hide quickbar username','tbqb' ); ?> [default = enable]</small></td>
+								<td><?php esc_attr_e( 'Quickbar - Meta - Welcome Message','tbqb' ); ?></td>
+							</tr>
+							<tr id="tbqb-tr-easynavi" >
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Use Easy Navigation','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[easynavi]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['easynavi'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e('Hide/Show advance navigation tool on the right of the screen','tbqb'); ?> [default = enable]</small></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="width: 220px;font-weight:bold;border-right:1px solid #CCCCCC;"><?php esc_attr_e('Use Pop-up Menu Animations','tbqb'); ?></td>
+								<td style="width: 20px;border-right:1px solid #CCCCCC;text-align:center;"><input name="<?php echo $this->tbqb_options_name; ?>[jsani]" value="1" type="checkbox" class="ww_opt_p_checkbox" <?php if ( $tbqb_options['jsani'] == 1 ) echo ' checked="checked" '; ?> /></td>
+								<td style="font-style:italic;border-right:1px solid #CCCCCC;"><small><?php esc_attr_e('Try disable animations if you encountered problems with javascript','tbqb'); ?> [default = enable]</small></td>
+								<td></td>
+							</tr>
+						</table>
 					</div>
 					<p style="float:left; clear: both;">
 						<input class="button" type="submit" name="Submit" value="<?php esc_attr_e('Update Options','tbqb'); ?>" />
