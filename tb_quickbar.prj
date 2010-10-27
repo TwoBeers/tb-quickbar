@@ -1,0 +1,16 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Project Information]
+Use Relative Directory=1
+Relative to Project File=1
+Include Sub Directories=1
+Project Tagfile=
+Project Wordfile=
+Filter=
+Create Tagfile=0
+[Files]
+0=.\images\
+1=.\js\
+2=tb_quickbar.php
+3=.\languages\
+4=.\css\
