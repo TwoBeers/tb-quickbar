@@ -184,7 +184,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								<?php } ?>
 							<?php } ?>
 							<div class="tbqb-minibutton">
-								<a href="<?php echo bloginfo( 'url' ); ?>" title="<?php _e( 'Home�' ); ?>">
+								<a href="<?php echo bloginfo( 'url' ); ?>" title="<?php _e( 'Home' ); ?>">
 									<div class="tbqb-navi_buttons" style="background-position: -64px top">
 										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
 									</div>
