@@ -184,7 +184,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								<?php } ?>
 							<?php } ?>
 							<div class="tbqb-minibutton">
-								<a href="<?php echo bloginfo( 'url' ); ?>" title="<?php _e( 'Homeì' ); ?>">
+								<a href="<?php echo bloginfo( 'url' ); ?>" title="<?php _e( 'Homeï¿½' ); ?>">
 									<div class="tbqb-navi_buttons" style="background-position: -64px top">
 										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
 									</div>
@@ -552,7 +552,7 @@ HERE;
 									<input type="text" size="60" name="<?php echo $this->tbqb_options_name; ?>[gravatardatas]" value="<?php echo esc_attr($tbqb_options['gravatardatas']); ?>" /><br />
 									<small>[default = tb-quickbar/images/user.png]</small>
 								</td>
-								<td><small><?php esc_attr_e( 'Quickbar - Gravatar','tbqb' ); ?></small></td>
+								<td><small><?php esc_attr_e( 'Quickbar - Gravatar - Fixed','tbqb' ); ?></small></td>
 							</tr>
 							<tr>
 								<td class="tbqb_first_td">- <?php esc_attr_e('Meta Menu','tbqb'); ?></td>
