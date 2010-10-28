@@ -18,13 +18,14 @@
 	border-bottom: 0px;
 }
 #quickbarpreview {
+	float: right;
 	-moz-border-radius: 15px 15px 15px 15px;
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-bottom: 20px;
+	margin: 40px 5px auto;
 	padding: 0 5px;
 	min-height: 50px;
-	max-width: 810px;
+	width: 30%;
 }
 #quickbarpreview p {
 	margin: 5px;
@@ -88,9 +89,6 @@
 	border-radius: 5px;
 	text-align: left;
 }
-.ww_opt_p_checkbox{
-	float: right;
-}
 #theme_preview {
 	-moz-box-shadow: 2px 2px 3px #555555;
 	box-shadow: 2px 2px 3px #555555;
@@ -133,4 +131,22 @@
 }
 #tcp-btnclose {
 	padding: 10px;
+}
+
+/* general */
+
+.tbqb_first_td {
+	width: 200px;
+	font-weight: bold;
+	border-right: 1px solid #CCCCCC;
+}
+.tbqb_second_td {
+	width: 60px;
+	border-right: 1px solid #CCCCCC;
+	text-align: center;
+}
+.tbqb_third_td {
+	font-style: italic;
+	text-align: center;
+	border-right: 1px solid #CCCCCC;
 }
