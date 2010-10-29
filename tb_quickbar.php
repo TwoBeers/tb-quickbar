@@ -204,7 +204,12 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 									</div>
 								</a>
 							</div>
-							<?php  posts_nav_link( ' ', '<div title="'. __( 'Newer Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Newer Posts','tbqb' ) . ': %title</span></div>', '<div title="'. __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . ': %title</span></div>' ); ?>
+							<div class="tbqb-minibutton">
+								<?php  next_posts_link( '<div title="' . __( 'Newer Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Newer Posts','tbqb' ) . '</span></div>' ); ?>
+							</div>
+							<div class="tbqb-minibutton">
+								<?php  previous_posts_link( '<div title="' . __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . '</span></div>' ); ?>
+							</div>
 						<?php } ?>
 						<div class="tbqb-minibutton">
 							<a href="#" title="<?php _e( 'Top of page', 'tbqb' ); ?>">
