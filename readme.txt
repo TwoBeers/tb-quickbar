@@ -10,9 +10,9 @@ Stable tag: stable-1
 Quick access to blog contents and fast navigation for WordPress
 
 == Description ==
-Quick-menus has always been a distinctive characteristic of TwoBeersís themes, since the first, unknown, The Black City.
+Quick-menus has always been a distinctive characteristic of TwoBeers‚Äôs themes, since the first, unknown, The Black City.
 Quickbar plugin was developed to give people a rapid access tool to their blog contents, without using a TwoBeers theme.
-The plugin is somehow different from the themeís quickbar as all the fix elements (last posts, comments and categories), were removed and replaced by a widget ìboxî. This will give blogís admin the possibility to put what they want in constant evidence without ìforcingî the user to scroll the page.
+The plugin is somehow different from the theme‚Äôs quickbar as all the fix elements (last posts, comments and categories), were removed and replaced by a widget ‚Äúbox‚Äù. This will give blog‚Äôs admin the possibility to put what they want in constant evidence without ‚Äúforcing‚Äù the user to scroll the page.
 
 TwoBeers Quickbar is a plugin for WordPress
 
