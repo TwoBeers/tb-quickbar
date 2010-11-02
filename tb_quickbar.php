@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: TwoBeers Quickbar
-Plugin URI: http://www.twobeers.net/
-Description: Quickbar from TwoBeers.net
+Plugin URI: http://www.twobeers.net/annunci/quickbar-plugins
+Description: Quick access to blog contents and fast navigation for WordPress
 Version: 0.2
 Author: TB Crew
 Author URI: http://www.twobeers.net/
