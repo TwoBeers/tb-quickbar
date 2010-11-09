@@ -191,10 +191,10 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								</a>
 							</div>
 							<div class="tbqb-minibutton">
-								<?php next_post_link('%link', '<div title="' . __( 'Next Post' ) . ': %title" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Next Post' ) . ': %title</span></div>'); ?>
+								<?php next_post_link('%link', '<div title="' . __( 'Previous Post' ) . ': %title" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Previous Post' ) . ': %title</span></div>'); ?>
 							</div>
 							<div class="tbqb-minibutton">
-								<?php previous_post_link('%link', '<div title="' . __( 'Previous Post' ) . ': %title" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Previous Post' ) . ': %title</span></div>'); ?>
+								<?php previous_post_link('%link', '<div title="' . __( 'Next Post' ) . ': %title" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Next Post' ) . ': %title</span></div>'); ?>
 							</div>
 						<?php } else {?>
 							<div class="tbqb-minibutton">
@@ -205,10 +205,10 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								</a>
 							</div>
 							<div class="tbqb-minibutton">
-								<?php  next_posts_link( '<div title="' . __( 'Newer Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Newer Posts','tbqb' ) . '</span></div>' ); ?>
+								<?php  next_posts_link( '<div title="' . __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . '</span></div>' ); ?>
 							</div>
 							<div class="tbqb-minibutton">
-								<?php  previous_posts_link( '<div title="' . __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . '</span></div>' ); ?>
+								<?php  previous_posts_link( '<div title="' . __( 'Newer Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Newer Posts','tbqb' ) . '</span></div>' ); ?>
 							</div>
 						<?php } ?>
 						<div class="tbqb-minibutton">
