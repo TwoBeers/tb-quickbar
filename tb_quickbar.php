@@ -395,7 +395,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 		// quickbar init
 		function tb_quickbar_init() {
 			// Add localization support
-			load_plugin_textdomain( 'tbqb', false, dirname(plugin_basename(__FILE__)) . '/languages' );
+			load_plugin_textdomain( 'tbqb', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 			// Register the Quickbar as sidebar
 			register_sidebar( array(
 				'name'          =>	'TBQuickbar',
@@ -467,7 +467,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			<h2>Quickbar Settings</h2>
 				<form method="post" action="options.php">
 					<?php settings_fields( $this->tbqb_options_name . 'Group' ); ?>
-					<div id="tbqb-appearance" class="stylediv" <?php if ( $tbqb_options['easynavi'] == 0 && $tbqb_options['quickbar'] == 0 ) { echo 'class="tbqb_display_none"'; } ?> >
+					<div id="tbqb-appearance" class="stylediv" >
 						<h3><?php esc_attr_e('Appearance','tbqb'); ?></h3>
 						<div id="quickbarpreview">
 							<p><span id="qbp_text"><?php esc_attr_e('Normal','tbqb'); ?></span><span id="qbp_hitext"><?php esc_attr_e('Highlighted','tbqb'); ?></span></p>
@@ -599,11 +599,18 @@ HERE;
 							</tr>
 						</table>
 					</div>
-					<p style="float:left; clear: both;">
+					<p style="float: left; clear: both;">
 						<input class="button" type="submit" name="Submit" value="<?php esc_attr_e('Update Options','tbqb'); ?>" />
 						<a style="font-size: 10px; text-decoration: none; margin-left: 10px; cursor: pointer;" href="<?php esc_attr('plugins.php?page=tb-quickbar-settings'); ?>" target="_self"><?php esc_attr_e('Undo Changes','tbqb'); ?></a>
 					</p>
 				</form>
+				<div class="stylediv" style="clear: both;">
+					<p style="float: right; margin: 18px 10% 0px 0px"><a href="http://www.twobeers.net/annunci/quickbar-plugin" title="Quickbar plugin" target="_blank">Quickbar plugin</a></p>
+					<p style="margin: 10px 0px 0px 10%">
+						<?php _e( 'If you like/dislike this plugin let us know it! Leave us a feedback:' , 'tbqb' ); ?><br />
+						<?php _e( 'For any issues, question or support:' , 'tbqb' ); ?>
+					</p>
+				</div>
 			</div>
 			<?php
 		}
