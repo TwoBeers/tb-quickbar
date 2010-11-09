@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Text in echo
+#: tb_quickbar.php:471
+msgid "Appearance"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:493
+msgid "Background"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:498
+msgid "Border"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:222
+#: tb_quickbar.php:224
+msgid "Bottom of page"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:541
+msgid "Current User"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:527
+msgid "Date"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:541
+msgid "Fixed Gravatar Image"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:539
+msgid "Gravatar Type"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:555
+msgid "Gravatar Url or Email"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:533
+msgid "Gravatar."
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:591
+msgid "Hide/Show advance navigation tool on the right of the screen"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:488
+msgid "Highlighted Text"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:473
+msgid "Highlighted"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:473
+msgid "Normal"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:563
+msgid "Meta Menu"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:208
+msgid "Newer Posts"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:483
+msgid "Normal Text"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:211
+msgid "Older Posts"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:506
+msgid "Options"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:515
+#: tb_quickbar.php:566
+msgid "Quickbar"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:552
+msgid "Quickbar - Gravatar"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:560
+msgid "Quickbar - Gravatar - Fixed"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:572
+msgid "Quickbar - Meta"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:586
+msgid "Quickbar - Meta - Welcome Message"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:521
+msgid "Search Box"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:583
+msgid "Show Username"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:517
+msgid "Show/Hide bottom quickbar"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:529
+msgid "Show/Hide quickbar date"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:535
+msgid "Show/Hide quickbar gravatar"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:565
+msgid "Show/Hide quickbar meta"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:523
+msgid "Show/Hide quickbar search box"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:585
+msgid "Show/Hide quickbar username"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:571
+msgid "Show/Hide quickbar welcome message"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:247
+msgid "Today is "
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:215
+#: tb_quickbar.php:217
+msgid "Top of page"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:180
+msgid "Trackback URL"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:597
+msgid "Try disable animations if you encountered problems with javascript"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:604
+msgid "Undo Changes"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:603
+msgid "Update Options"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:589
+msgid "Use Easy Navigation"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:595
+msgid "Use Pop-up Menu Animations"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:569
+msgid "Welcome Message"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:575
+msgid "Welcome User Message Text"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:479
+msgid "current"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:511
+msgid "description"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:608
+msgid "drag here your favorite widgets"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:478
+#: tb_quickbar.php:509
+msgid "name"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:512
+msgid "require"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:480
+msgid "select new"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:510
+msgid "status"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:172
+msgid "Feed for comments on this post"
+msgstr ""

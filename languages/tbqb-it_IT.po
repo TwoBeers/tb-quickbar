@@ -1,0 +1,270 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: TwoBeers Crew <light@twobeers.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+#. Text in echo
+#: tb_quickbar.php:471
+msgid "Appearance"
+msgstr "Aspetto"
+
+#. Text in echo
+#: tb_quickbar.php:493
+msgid "Background"
+msgstr "Sfondo"
+
+#. Text in echo
+#: tb_quickbar.php:498
+msgid "Border"
+msgstr "Bordo"
+
+#. Text in echo
+#: tb_quickbar.php:222
+#: tb_quickbar.php:224
+msgid "Bottom of page"
+msgstr "Fondo pagina"
+
+#. Text in function
+#: tb_quickbar.php:541
+msgid "Current User"
+msgstr "Utente Corrente"
+
+#. Text in echo
+#: tb_quickbar.php:527
+msgid "Date"
+msgstr "Data"
+
+#. Text in function
+#: tb_quickbar.php:541
+msgid "Fixed Gravatar Image"
+msgstr "Immagine Gravatar Statica"
+
+#. Text in echo
+#: tb_quickbar.php:539
+msgid "Gravatar Type"
+msgstr "Tipo di Gravatar"
+
+#. Text in echo
+#: tb_quickbar.php:555
+msgid "Gravatar Url or Email"
+msgstr "Url o Email del Gravatar"
+
+#. Text in echo
+#: tb_quickbar.php:533
+msgid "Gravatar."
+msgstr "Gravatar"
+
+#. Text in echo
+#: tb_quickbar.php:591
+msgid "Hide/Show advance navigation tool on the right of the screen"
+msgstr "Nascondi/Visualizza gli strumenti di navigazione avanzati a destra dello schermo"
+
+#. Text in echo
+#: tb_quickbar.php:488
+msgid "Highlighted Text"
+msgstr "Testo Evidenziato"
+
+#. Text in echo
+#: tb_quickbar.php:473
+msgid "Highlighted"
+msgstr "Evidenziato"
+
+#. Text in echo
+#: tb_quickbar.php:473
+msgid "Normal"
+msgstr "Normale"
+
+#. Text in echo
+#: tb_quickbar.php:563
+msgid "Meta Menu"
+msgstr "Menu Meta"
+
+#. Text in function
+#: tb_quickbar.php:208
+msgid "Newer Posts"
+msgstr "Articoli Pi&ugrave; Recenti"
+
+#. Text in echo
+#: tb_quickbar.php:483
+msgid "Normal Text"
+msgstr "Testo Normale"
+
+#. Text in function
+#: tb_quickbar.php:211
+msgid "Older Posts"
+msgstr "Articoli Pi&ugrave; Vecchi"
+
+#. Text in echo
+#: tb_quickbar.php:506
+msgid "Options"
+msgstr "Opzioni"
+
+#. Text in echo
+#: tb_quickbar.php:515
+#: tb_quickbar.php:566
+msgid "Quickbar"
+msgstr "Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:552
+msgid "Quickbar - Gravatar"
+msgstr "Quickbar - Gravatar"
+
+#. Text in echo
+#: tb_quickbar.php:560
+msgid "Quickbar - Gravatar - Fixed"
+msgstr "Quickbar - Gravatar - Statico"
+
+#. Text in echo
+#: tb_quickbar.php:572
+msgid "Quickbar - Meta"
+msgstr "Quickbar - Meta"
+
+#. Text in echo
+#: tb_quickbar.php:586
+msgid "Quickbar - Meta - Welcome Message"
+msgstr "Quickbar - Meta - Messaggio Di Benvenuto"
+
+#. Text in echo
+#: tb_quickbar.php:521
+msgid "Search Box"
+msgstr "Strumento Di Ricerca"
+
+#. Text in echo
+#: tb_quickbar.php:583
+msgid "Show Username"
+msgstr "Visualizza Nome Utente"
+
+#. Text in echo
+#: tb_quickbar.php:517
+msgid "Show/Hide bottom quickbar"
+msgstr "Visualizza/Nascondi Quickbar a fondo pagina"
+
+#. Text in echo
+#: tb_quickbar.php:529
+msgid "Show/Hide quickbar date"
+msgstr "Visualizza/Nascondi data nella Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:535
+msgid "Show/Hide quickbar gravatar"
+msgstr "Visualizza/Nascondi gravatar della Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:565
+msgid "Show/Hide quickbar meta"
+msgstr "Visualizza/Nascondi menu meta della Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:523
+msgid "Show/Hide quickbar search box"
+msgstr "Visualizza/Nascondi srtumento di ricerca della Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:585
+msgid "Show/Hide quickbar username"
+msgstr "Visualizza/Nascondi gravatar della Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:571
+msgid "Show/Hide quickbar welcome message"
+msgstr "Visualizza/Nascondi messaggio di benvenuto nella Quickbar"
+
+#. Text in echo
+#: tb_quickbar.php:247
+msgid "Today is "
+msgstr "Oggi &egrave; "
+
+#. Text in echo
+#: tb_quickbar.php:215
+#: tb_quickbar.php:217
+msgid "Top of page"
+msgstr "Inizio pagina"
+
+#. Text in echo
+#: tb_quickbar.php:180
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+#. Text in echo
+#: tb_quickbar.php:597
+msgid "Try disable animations if you encountered problems with javascript"
+msgstr "Prova a disabilitare le animazioni se riscontri dei problemi con i javascript"
+
+#. Text in echo
+#: tb_quickbar.php:604
+msgid "Undo Changes"
+msgstr "Annulla Modifiche"
+
+#. Text in echo
+#: tb_quickbar.php:603
+msgid "Update Options"
+msgstr "Aggiorna Impostazioni"
+
+#. Text in echo
+#: tb_quickbar.php:589
+msgid "Use Easy Navigation"
+msgstr "Utilizza la Barra degli Strumenti di Navigazione"
+
+#. Text in echo
+#: tb_quickbar.php:595
+msgid "Use Pop-up Menu Animations"
+msgstr "Utilizza le Animazioni dei Menu"
+
+#. Text in echo
+#: tb_quickbar.php:569
+msgid "Welcome Message"
+msgstr "Messaggio di Benvenuto"
+
+#. Text in echo
+#: tb_quickbar.php:575
+msgid "Welcome User Message Text"
+msgstr "Testo del Messaggio di Benvenuto per l&apos;Utente"
+
+#. Text in echo
+#: tb_quickbar.php:479
+msgid "current"
+msgstr "in uso"
+
+#. Text in echo
+#: tb_quickbar.php:511
+msgid "description"
+msgstr "descrizione"
+
+#. Text in function
+#: tb_quickbar.php:608
+msgid "drag here your favorite widgets"
+msgstr "trascina qui i tuoi widget preferiti"
+
+#. Text in echo
+#: tb_quickbar.php:478
+#: tb_quickbar.php:509
+msgid "name"
+msgstr "nome"
+
+#. Text in echo
+#: tb_quickbar.php:512
+msgid "require"
+msgstr "richiede"
+
+#. Text in echo
+#: tb_quickbar.php:480
+msgid "select new"
+msgstr "seleziona nuovo"
+
+#. Text in echo
+#: tb_quickbar.php:510
+msgid "status"
+msgstr "stato"
+
+#. Text in echo
+#: tb_quickbar.php:172
+msgid "Feed for comments on this post"
+msgstr "Feed dei commenti a questo articolo"
+
