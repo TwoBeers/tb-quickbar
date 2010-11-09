@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Text in echo
+#: tb_quickbar.php:276
+msgid "Add New Post"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:247
+msgid "F j, Y"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:187
+#: tb_quickbar.php:203
+#: tb_quickbar.php:201
+msgid "Home"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:163
+#: tb_quickbar.php:165
+msgid "Leave a comment"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:276
+msgid "New Post"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:194
+msgid "Next Post"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:608
+msgid "Options saved."
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:197
+msgid "Previous Post"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:152
+#: tb_quickbar.php:154
+msgid "Print"
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:241
+msgid "Search"
+msgstr ""
+
+#. Text in function
+#: tb_quickbar.php:608
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#. Text in echo
+#: tb_quickbar.php:275
+msgid "Your Profile"
+msgstr ""

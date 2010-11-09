@@ -167,9 +167,9 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 									</a>
 								</div>
 								<div class="tbqb-minibutton">
-									<a href="<?php echo get_post_comments_feed_link( $post->ID, 'rss2' ); ?> " title="<?php _e( 'feed for comments on this post', 'tbqb' ); ?>">
+									<a href="<?php echo get_post_comments_feed_link( $post->ID, 'rss2' ); ?> " title="<?php _e( 'Feed for comments on this post', 'tbqb' ); ?>">
 										<div class="tbqb-navi_buttons" style="background-position: -32px top">
-											<span class="nb_tooltip"><?php _e( 'Feed for comments on this post' ); ?></span>
+											<span class="nb_tooltip"><?php _e( 'Feed for comments on this post', 'tbqb' ); ?></span>
 										</div>
 									</a>
 								</div>
@@ -395,7 +395,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 		// quickbar init
 		function tb_quickbar_init() {
 			// Add localization support
-		  load_plugin_textdomain( 'tbqb', false, TBQBPLGN_URLPATH . 'languages' );
+			load_plugin_textdomain( 'tbqb', false, dirname(plugin_basename(__FILE__)) . '/languages' );
 			// Register the Quickbar as sidebar
 			register_sidebar( array(
 				'name'          =>	'TBQuickbar',
@@ -470,7 +470,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 					<div id="tbqb-appearance" class="stylediv" <?php if ( $tbqb_options['easynavi'] == 0 && $tbqb_options['quickbar'] == 0 ) { echo 'class="tbqb_display_none"'; } ?> >
 						<h3><?php esc_attr_e('Appearance','tbqb'); ?></h3>
 						<div id="quickbarpreview">
-							<p><span id="qbp_text"><?php esc_attr_e('Normal Text','tbqb'); ?></span><span id="qbp_hitext"><?php esc_attr_e('Highlighted Text','tbqb'); ?></span></p>
+							<p><span id="qbp_text"><?php esc_attr_e('Normal','tbqb'); ?></span><span id="qbp_hitext"><?php esc_attr_e('Highlighted','tbqb'); ?></span></p>
 						</div>
 						<div id="jsForm" >
 							<table style="border-collapse: collapse; width: 65%;">
