@@ -29,7 +29,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 
 		// define class variable
 		var $tbqb_options_name = 'TBQuickBarPluginOptions';
-		var $version = '0.1beta3';
+		var $version = '0.1beta4';
 
 		function TBQuickBarPlugin() {
 
@@ -137,7 +137,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 
 		// Output the quickbar
 		function tbqb_add_quickbar() {
-			global $current_user;
+			global $current_user, $post;
 			$tbqb_options = get_option( $this->tbqb_options_name );
 
 			?>
@@ -148,6 +148,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 
 					<div id="tbqb-navi_cont">
 						<?php if ( is_singular() ) { ?>
+						
 							<div class="tbqb-minibutton">
 								<a href="javascript:window.print()" id="print_button" title="<?php _e('Print'); ?>" style="display: none;">
 									<div class="tbqb-navi_buttons" style="background-position: 0 top">
@@ -158,7 +159,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 							<script type="text/javascript" defer="defer">
 								document.getElementById('print_button').style.display = '';
 							</script>
-							<?php if ( comments_open($post->ID) && !post_password_required() ) { ?>
+							<?php if ( comments_open( $post->ID ) && !post_password_required() ) { ?>
 								<div class="tbqb-minibutton">
 									<a href="#respond" title="<?php _e( 'Leave a comment' ); ?>">
 										<div class="tbqb-navi_buttons" style="background-position: -16px top">
@@ -184,33 +185,70 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								<?php } ?>
 							<?php } ?>
 							<div class="tbqb-minibutton">
-								<a href="<?php echo bloginfo( 'url' ); ?>" title="<?php _e( 'Home' ); ?>">
+								<a href="<?php echo home_url(); ?>" title="<?php _e( 'Home' ); ?>">
+									<div class="tbqb-navi_buttons" style="background-position: -64px top">
+										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
+									</div>
+								</a>
+							</div>
+							
+							
+							<?php if ( is_page() ) { 
+								$page_nav_links = $this->tbqb_page_navi( $post->ID ); // get the menu-ordered prev/next pages links
+								if ( isset ( $page_nav_links['prev'] ) ) { // prev page link ?>
+									<div class="tbqb-minibutton">
+										<a href="<?php echo $page_nav_links['prev']['link']; ?>" title="<?php echo $page_nav_links['prev']['title']; ?>">
+											<div class="tbqb-navi_buttons" style="background-position: -80px top">
+												<span class="nb_tooltip"><?php echo __( 'Previous page' ) . ': ' . $page_nav_links['prev']['title']; ?></span>
+											</div>
+										</a>
+									</div>
+								<?php }
+								if ( isset ( $page_nav_links['next'] ) ) { // next page link ?>
+									<div class="tbqb-minibutton">
+										<a href="<?php echo $page_nav_links['next']['link']; ?>" title="<?php echo $page_nav_links['next']['title']; ?>">
+											<div class="tbqb-navi_buttons" style="background-position: -96px top">
+												<span class="nb_tooltip"><?php echo __( 'Next page' ) . ': ' . $page_nav_links['next']['title']; ?></span>
+											</div>
+										</a>
+									</div>
+								<?php } ?>
+							<?php } elseif ( !is_attachment() ) { ?>
+								<div class="tbqb-minibutton">
+									<?php next_post_link( '%link', '<div class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Next Post' ) . ': %title</span></div>' ); ?>
+								</div>
+
+								<div class="tbqb-minibutton">
+									<?php previous_post_link( '%link', '<div class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Previous Post' ) . ': %title</span></div>' ); ?>
+								</div>
+							<?php } else { ?>
+								<?php if ( !empty( $post->post_parent ) ) { ?>
+									<div class="tbqb-minibutton">
+										<a href="<?php echo get_permalink( $post->post_parent ); ?>" title="<?php esc_attr( printf( __( 'Return to %s', 'tbqb' ), get_the_title( $post->post_parent ) ) ); ?>" rel="gallery">
+											<div class="tbqb-navi_buttons" style="background-position: -80px top">
+												<span class="nb_tooltip"><?php esc_attr( printf( __( 'Return to %s', 'tbqb' ), get_the_title( $post->post_parent ) ) ); ?></span>
+											</div>
+										</a>
+									</div>
+								<?php } ?>
+							<?php } ?>
+							
+						<?php } else { // index navigation ?>
+							<div class="tbqb-minibutton">
+								<a href="<?php home_url(); ?>" title="<?php _e( 'Home' ); ?>">
 									<div class="tbqb-navi_buttons" style="background-position: -64px top">
 										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
 									</div>
 								</a>
 							</div>
 							<div class="tbqb-minibutton">
-								<?php next_post_link('%link', '<div title="' . __( 'Previous Post' ) . ': %title" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Previous Post' ) . ': %title</span></div>'); ?>
+								<?php  previous_posts_link( '<div title="' . __( 'Newer Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Newer Posts','tbqb' ) . '</span></div>' ); ?>
 							</div>
 							<div class="tbqb-minibutton">
-								<?php previous_post_link('%link', '<div title="' . __( 'Next Post' ) . ': %title" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Next Post' ) . ': %title</span></div>'); ?>
-							</div>
-						<?php } else {?>
-							<div class="tbqb-minibutton">
-								<a href="<?php bloginfo( 'url' ); ?>" title="<?php _e( 'Home' ); ?>">
-									<div class="tbqb-navi_buttons" style="background-position: -64px top">
-										<span class="nb_tooltip"><?php _e( 'Home' ); ?></span>
-									</div>
-								</a>
-							</div>
-							<div class="tbqb-minibutton">
-								<?php  next_posts_link( '<div title="' . __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -80px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . '</span></div>' ); ?>
-							</div>
-							<div class="tbqb-minibutton">
-								<?php  previous_posts_link( '<div title="' . __( 'Newer Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Newer Posts','tbqb' ) . '</span></div>' ); ?>
+								<?php  next_posts_link( '<div title="' . __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . '</span></div>' ); ?>
 							</div>
 						<?php } ?>
+						
 						<div class="tbqb-minibutton">
 							<a href="#" title="<?php _e( 'Top of page', 'tbqb' ); ?>">
 								<div class="tbqb-navi_buttons" style="background-position: -112px top">
@@ -272,8 +310,11 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 										<ul class="">
 											<?php wp_register(); ?>
 											<?php if ( is_user_logged_in() ) {?>
-												<li><a href="<?php bloginfo( 'url' ); ?>/wp-admin/profile.php"><?php esc_attr_e( 'Your Profile' ); ?></a></li>
-												<li><a title="<?php esc_attr_e( 'Add New Post' ); ?>" href="<?php bloginfo( 'url' ); ?>/wp-admin/post-new.php"><?php esc_attr_e( 'New Post' ); ?></a></li>
+												<li><a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>" title="<?php esc_attr_e( 'Your Profile' ); ?>"><?php esc_attr_e( 'Your Profile' ); ?></a></li>
+												<li><a title="<?php esc_attr_e( 'Add New Post' ); ?>" href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>" title="<?php esc_attr_e( 'New Post' ); ?>"><?php esc_attr_e( 'New Post' ); ?></a></li>
+												<?php if ( current_user_can( 'moderate_comments' ) ) { ?>
+													<li><a title="<?php _e( 'Comments' ); ?>" href="<?php echo esc_url( admin_url( 'edit-comments.php' ) ); ?>" title="<?php _e( 'Comments' ); ?>"><?php _e( 'Comments' ); ?></a></li>
+												<?php } ?>
 											<?php } ?>
 											<li><?php wp_loginout(); ?></li>
 										</ul>
@@ -291,6 +332,33 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			<?php } ?>
 			<!-- end quickbar -->
 			<?php
+		}
+		
+		// pages navigation links
+		function tbqb_page_navi($this_page_id) {
+			$pages = get_pages( array( 'sort_column' => 'menu_order' ) ); // get the menu-ordered list of the pages
+			$page_links = array();
+			foreach ( $pages as $k => $pagg ) {
+				if ( $pagg->ID == $this_page_id ) { // we are in this $pagg
+					if ( $k == 0 ) { // is first page
+						$page_links['next']['link'] = get_page_link($pages[1]->ID);
+						$page_links['next']['title'] = $pages[1]->post_title;
+						if ( $page_links['next']['title'] == '' ) $page_links['next']['title'] = __( '(no title)' );
+					} elseif ( $k == ( count( $pages ) -1 ) ) { // is last page
+						$page_links['prev']['link'] = get_page_link($pages[$k - 1]->ID);
+						$page_links['prev']['title'] = $pages[$k - 1]->post_title;
+						if ( $page_links['prev']['title'] == '' ) $page_links['prev']['title'] = __( '(no title)' );
+					} else {
+						$page_links['next']['link'] = get_page_link($pages[$k + 1]->ID);
+						$page_links['next']['title'] = $pages[$k + 1]->post_title;
+						if ( $page_links['next']['title'] == '' ) $page_links['next']['title'] = __( '(no title)' );
+						$page_links['prev']['link'] = get_page_link($pages[$k - 1]->ID);
+						$page_links['prev']['title'] = $pages[$k - 1]->post_title;
+						if ( $page_links['prev']['title'] == '' ) $page_links['prev']['title'] = __( '(no title)' );
+					}
+				}
+			}
+			return $page_links;
 		}
 
 		// define gravatar
@@ -605,10 +673,8 @@ HERE;
 					</p>
 				</form>
 				<div class="stylediv" style="clear: both;">
-					<p style="float: right; margin: 18px 10% 0px 0px"><a href="http://www.twobeers.net/annunci/quickbar-plugin" title="Quickbar plugin" target="_blank">Quickbar plugin</a></p>
-					<p style="margin: 10px 0px 0px 10%">
-						<?php _e( 'If you like/dislike this plugin let us know it! Leave us a feedback:' , 'tbqb' ); ?><br />
-						<?php _e( 'For any issues, question or support:' , 'tbqb' ); ?>
+					<p style="margin: 10px; text-align: center; ">
+						<?php esc_attr_e( 'If you like/dislike this plugin, or if you encounter any issues using it, please let us know it.<br /><a href="http://www.twobeers.net/annunci/quickbar-plugin" title="Quickbar plugin" target="_blank">Leave a feedback</a>' , 'tbqb' ); ?>
 					</p>
 				</div>
 			</div>
