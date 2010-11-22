@@ -94,6 +94,29 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 		// sanitaze and validate input
 		function tbqb_sanitaze_options($input) {
 
+			$tbqb_options_array = array(
+					'fontcolor',
+					'backcolor',
+					'bordercolor',
+					'highcolor',
+					'quickbar',
+					'easynavi',
+					'meta',
+					'username',
+					'welcome',
+					'welcometxt',
+					'gravatar',
+					'gravatartype',
+					'gravatardatas',
+					'search',
+					'date',
+					'jsani'
+					);
+
+			foreach( $tbqb_options_array as $key ) {
+				if( !isset( $input[$key] ) ) $input[$key] = '';
+			}
+
 			$input['fontcolor'] = esc_url( substr( $input['fontcolor'], 0 ,7 ) );
 			$input['backcolor'] = esc_url( substr( $input['backcolor'], 0 ,7 ) );
 			$input['bordercolor'] = esc_url( substr( $input['bordercolor'], 0 ,7 ) );
@@ -109,13 +132,13 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			$input['date'] = ( $input['date'] == 1 ? 1 : 0 );
 			$input['jsani'] = ( $input['jsani'] == 1 ? 1 : 0 );
 
-			if ( !isset( $input['welcometxt'] ) || empty( $input['welcometxt'] ) ) {
+			if ( empty( $input['welcometxt'] ) ) {
 				$input['welcometxt'] ='Welcome';
 			} else {
 				$input['welcometxt'] = esc_attr( substr( $input['welcometxt'], 0, 20 ) );
 			}
 
-			if ( !isset( $input['gravatartype'] ) ) {
+			if ( empty( $input['gravatartype'] ) ) {
 				$input['gravatartype'] = 'current-user';
 			} else {
 				$input['gravatartype'] = ( $input['gravatartype'] == 'current-user' ? 'current-user' : 'fixed' );
@@ -124,6 +147,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			if ( $input['gravatartype'] == 'current-user' ) {
 				$input['gravatardatas'] = '' ;
 			}
+
 			if ( $input['gravatartype'] == 'fixed' && empty( $input['gravatardatas'] ) ) {
 				$input['gravatardatas'] = esc_url_raw( TBQBPLGN_URLPATH . 'images/user.png' );
 			} else if ( $input['gravatartype'] == 'fixed' && is_email( $input['gravatardatas'] ) ) {
@@ -148,7 +172,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 
 					<div id="tbqb-navi_cont">
 						<?php if ( is_singular() ) { ?>
-						
+
 							<div class="tbqb-minibutton">
 								<a href="javascript:window.print()" id="print_button" title="<?php _e('Print'); ?>" style="display: none;">
 									<div class="tbqb-navi_buttons" style="background-position: 0 top">
@@ -191,9 +215,9 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 									</div>
 								</a>
 							</div>
-							
-							
-							<?php if ( is_page() ) { 
+
+
+							<?php if ( is_page() ) {
 								$page_nav_links = $this->tbqb_page_navi( $post->ID ); // get the menu-ordered prev/next pages links
 								if ( isset ( $page_nav_links['prev'] ) ) { // prev page link ?>
 									<div class="tbqb-minibutton">
@@ -232,7 +256,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 									</div>
 								<?php } ?>
 							<?php } ?>
-							
+
 						<?php } else { // index navigation ?>
 							<div class="tbqb-minibutton">
 								<a href="<?php home_url(); ?>" title="<?php _e( 'Home' ); ?>">
@@ -248,7 +272,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 								<?php  next_posts_link( '<div title="' . __( 'Older Posts','tbqb' ) . '" class="tbqb-navi_buttons" style="background-position: -96px top"><span class="nb_tooltip">' . __( 'Older Posts','tbqb' ) . '</span></div>' ); ?>
 							</div>
 						<?php } ?>
-						
+
 						<div class="tbqb-minibutton">
 							<a href="#" title="<?php _e( 'Top of page', 'tbqb' ); ?>">
 								<div class="tbqb-navi_buttons" style="background-position: -112px top">
@@ -333,7 +357,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			<!-- end quickbar -->
 			<?php
 		}
-		
+
 		// pages navigation links
 		function tbqb_page_navi($this_page_id) {
 			$pages = get_pages( array( 'sort_column' => 'menu_order' ) ); // get the menu-ordered list of the pages
