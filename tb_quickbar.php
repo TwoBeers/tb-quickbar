@@ -29,7 +29,7 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 
 		// define class variable
 		var $tbqb_options_name = 'TBQuickBarPluginOptions';
-		var $version = '0.1beta4';
+		var $version = '0.21';
 
 		function TBQuickBarPlugin() {
 
@@ -131,6 +131,15 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			$input['search'] = ( $input['search'] == 1 ? 1 : 0 );
 			$input['date'] = ( $input['date'] == 1 ? 1 : 0 );
 			$input['jsani'] = ( $input['jsani'] == 1 ? 1 : 0 );
+			
+			if( $input['quickbar'] == 0 ) { // turn off dependents when quickbar is disabled
+				$input['meta'] = 0;
+				$input['username'] = 0;
+				$input['welcome'] = 0;
+				$input['gravatar'] = 0;
+				$input['search'] = 0;
+				$input['date'] = 0;
+			}
 
 			if ( empty( $input['welcometxt'] ) ) {
 				$input['welcometxt'] ='Welcome';
@@ -423,6 +432,18 @@ if( !class_exists( 'TBQuickBarPlugin' ) ) {
 			$tbqb_options = get_option( $this->tbqb_options_name );
 			wp_enqueue_style( 'tbqb_output', TBQBPLGN_URLPATH . 'css/tbqb_style.css', false, $this->version, 'screen' );
 
+			if ( $tbqb_options['quickbar'] == 1 ) {
+				echo '
+				<style type="text/css" media="screen">
+	
+				/* add empty space in bottom of page ----> */
+				
+				body { 
+					padding-bottom: 100px;
+				}
+				</style>';
+			}
+			
 			echo '
 			<style type="text/css" media="screen">
 				#tbqb_quickbar {

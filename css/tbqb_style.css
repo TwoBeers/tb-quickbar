@@ -2,13 +2,6 @@
 	stylesheet for TBQuickbar (v1.0beta4)
 */
 
-/* empty space in bottom of page ----> */
-
-body { 
-	padding-bottom: 100px;
-}
-
-
 /* reset */
 
 #tbqb_quickbar html, #tbqb_quickbar body, #tbqb_quickbar div, #tbqb_quickbar span, #tbqb_quickbar applet, #tbqb_quickbar object, #tbqb_quickbar iframe, #tbqb_quickbar h1, #tbqb_quickbar h2, #tbqb_quickbar h3, #tbqb_quickbar h4, #tbqb_quickbar h5, #tbqb_quickbar h6, #tbqb_quickbar p, #tbqb_quickbar blockquote, #tbqb_quickbar pre, #tbqb_quickbar a, #tbqb_quickbar abbr, #tbqb_quickbar acronym, #tbqb_quickbar address, #tbqb_quickbar big, #tbqb_quickbar cite, #tbqb_quickbar code, #tbqb_quickbar del, #tbqb_quickbar dfn, #tbqb_quickbar em, #tbqb_quickbar font, #tbqb_quickbar img, #tbqb_quickbar ins, #tbqb_quickbar kbd, #tbqb_quickbar q, #tbqb_quickbar s, #tbqb_quickbar samp, #tbqb_quickbar small, #tbqb_quickbar strike, #tbqb_quickbar strong, #tbqb_quickbar sub, #tbqb_quickbar sup, #tbqb_quickbar tt, #tbqb_quickbar var, #tbqb_quickbar b, #tbqb_quickbar u, #tbqb_quickbar i, #tbqb_quickbar center, #tbqb_quickbar dl, #tbqb_quickbar dt, #tbqb_quickbar dd, #tbqb_quickbar ol, #tbqb_quickbar ul, #tbqb_quickbar li, #tbqb_quickbar fieldset, #tbqb_quickbar form, #tbqb_quickbar label, #tbqb_quickbar legend, #tbqb_quickbar table, #tbqb_quickbar caption, #tbqb_quickbar tbody, #tbqb_quickbar tfoot, #tbqb_quickbar thead, #tbqb_quickbar tr, #tbqb_quickbar th, #tbqb_quickbar td {
