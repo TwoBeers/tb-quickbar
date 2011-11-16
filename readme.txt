@@ -4,7 +4,7 @@ Donate link: still don't have one
 Tags: navigation, comments, sidebar, widget
 Version: 0.21
 Requires at least: 3.0
-Tested up to: 3.0.1
+Tested up to: 3.2.1
 Stable tag: stable-3
 
 Quick access to blog contents and fast navigation for WordPress
